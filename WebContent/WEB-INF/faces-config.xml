@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+    version="2.0">
+	<managed-bean>
+		<managed-bean-name>Query</managed-bean-name>
+		<managed-bean-class>QueryBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>Set</managed-bean-name>
+		<managed-bean-class>SetBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>FacadeBean</managed-bean-name>
+		<managed-bean-class>FacadeBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<navigation-rule>
+		<display-name>Menu.xhtml</display-name>
+		<from-view-id>/Menu.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>QueryAvail</from-outcome>
+			<to-view-id>/Query.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>Menu.xhtml</display-name>
+		<from-view-id>/Menu.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>SetAvail</from-outcome>
+			<to-view-id>/Set.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>Query.xhtml</display-name>
+		<from-view-id>/Query.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Cancelar</from-outcome>
+			<to-view-id>/Menu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>Set.xhtml</display-name>
+		<from-view-id>/Set.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Cancelar</from-outcome>
+			<to-view-id>/Menu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+</faces-config>

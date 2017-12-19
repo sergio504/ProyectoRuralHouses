@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Rural Houses</title>
+</h:head>
+<h:body>
+		<h:form>
+		<table style="width: 713px; height: 230px; ">
+		<tr><td>Rural house code:</td><td><h:selectOneMenu id="casas" value="#{Query.casa}" converter="omnifaces.SelectItemsConverter"><f:selectItems value="#{Query.casas}"></f:selectItems></h:selectOneMenu></td></tr>
+		<tr><td>First day: </td><td><p:calendar value="#{Query.fechaInicio}"></p:calendar></td></tr>
+		<tr><td>Number of nights: </td><td><h:inputText value="#{Query.numNoches}"></h:inputText></td></tr>
+		<tr><td style="text-align:center;"><h:dataTable  id ="ofertas" value = "#{Query.listaOfertas}" var="oferta" border ="1" >
+										    <h:column>
+										    <f:facet name="header">Offer</f:facet>
+										    <h:outputText value="#{oferta.offerNumber}"></h:outputText>
+										    </h:column>
+										
+										    <h:column>
+										    <f:facet name="header">Rural House</f:facet>
+										    <h:outputText value="#{oferta.ruralHouse.getHouseNumber()}"></h:outputText>
+										    </h:column>
+										
+										    <h:column>
+										    <f:facet name="header">First day</f:facet>
+										    <h:outputText value="#{oferta.firstDay}"><f:convertDateTime pattern="dd/MM/yyy" /></h:outputText>
+										    </h:column>
+										
+										    <h:column>
+										    <f:facet name="header">Last Day</f:facet>
+										    <h:outputText value="#{oferta.lastDay}"><f:convertDateTime pattern="dd/MM/yyy" /></h:outputText>
+										    </h:column>
+										   
+										    <h:column>
+										    <f:facet name="header">Price</f:facet>
+										    <h:outputText value="#{oferta.price}"></h:outputText>
+										    </h:column>
+											</h:dataTable></td></tr>
+					<tr><td>
+					<h:commandButton action="#{Query.obtenerOfertas}" value="Accept"></h:commandButton></td><td><h:commandButton action="#{Query.cancelar}" value="Cancel"></h:commandButton></td></tr>
+					<tr><td>Introduce el id de la oferta que deseas alquilar:</td><td><h:inputText value="#{Query.ofertaDeseada}"></h:inputText></td></tr>
+					<tr><td>Introduce tu nombre:</td><td><h:inputText value="#{Query.nombre}"></h:inputText></td></tr>
+					<tr><td>
+					<h:commandButton action="#{Query.alquilar}" value="Alquilar"></h:commandButton></td></tr>
+					<tr><td style="width: 301px; "><h:outputLabel value="#{Query.mensaje}"></h:outputLabel></td></tr>
+					
+		</table>
+		
+</h:form>
+
+</h:body>
+</html>

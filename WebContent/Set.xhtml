@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Rural Houses</title>
+</h:head>
+<h:body>
+		<h:form>
+		<table style="width: 713px; height: 230px; ">
+		<tr><td style="height: 73px; ">List of houses:  <h:selectOneMenu id="casas" value="#{Set.casa}" converter="omnifaces.SelectItemsConverter"><f:selectItems value="#{Set.casas}"></f:selectItems></h:selectOneMenu></td><td>Price:</td><td><h:inputText value="#{Set.precio}"></h:inputText></td></tr>
+		<tr><td style="height: 73px; ">First day: </td><td><p:calendar value="#{Set.fechaInicio}"></p:calendar></td><td>Last day: </td><td><p:calendar value="#{Set.fechaFin}"></p:calendar></td></tr>
+		<tr><td style="text-align:center; height: 59px"><h:commandButton action="#{Set.crearOferta}" value="Accept"></h:commandButton></td><td style="text-align:center;"></td><td><h:commandButton action="#{Set.cancelar}" value="Cancel"></h:commandButton></td></tr>
+		<tr><td style="width: 301px; "><h:outputLabel value="#{Set.mensaje}"></h:outputLabel></td></tr>
+		</table>
+		</h:form>
+
+</h:body>
+</html>
