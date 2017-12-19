@@ -123,6 +123,7 @@ public class QueryBean {
 	}
 	
 	public void alquilar() {
+		if (nombre!=null && nombre!="nadie") {
 		Offer tmp = comprobarSiCoincide(ofertaDeseada); 
 		if (tmp == null) {
 			this.mensaje = "La oferta no existe o no es seleccionable";
@@ -134,6 +135,7 @@ public class QueryBean {
 			}else {
 				mensaje = "Esta oferta esta reservada recientemente";
 			}
+		}
 		}
 	}
 	
